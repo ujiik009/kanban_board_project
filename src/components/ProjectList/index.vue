@@ -118,7 +118,7 @@ export default {
         {
           id: 3,
           name: "Project For internship",
-          percent: 35,
+          percent: 5,
           task_count: 50,
           duration: "2020-12-30 00:00:00",
           created_at: "2020-11-01 00:00:00",
