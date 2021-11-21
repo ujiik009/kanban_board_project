@@ -102,6 +102,14 @@
                   <label :for="`${'checkbox'}${index}`"></label>
                 </div>
               </div>
+              <div>
+                <div class="overme">
+                  {{ task_item.name }}
+                </div>
+                <div>
+                  <b-badge class="badge-label">{{ task_item.label }}</b-badge>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -312,6 +320,16 @@ export default {
   opacity: 1;
 }
 
+.overme {
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
+.badge-label {
+  background-color: #dbf6fd;
+  color: #00acd9;
+}
 
 </style>
