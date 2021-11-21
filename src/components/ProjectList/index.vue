@@ -72,8 +72,8 @@
           </div>
 
           <div id="view-content">
-            <ProjectViewCard v-if="view_page_active == 'card'" />
-            <ProjectViewList v-if="view_page_active == 'list'" />
+            <ProjectViewCard :projects="project" v-if="view_page_active == 'card'" />
+            <ProjectViewList :projects="project" v-if="view_page_active == 'list'" />
           </div>
         </div>
       </div>
@@ -98,6 +98,41 @@ export default {
       in_progress: 50,
       upcomeing: 12,
       total_task: 62,
+      project: [
+        {
+          id: 1,
+          name: "Web Desinger Project",
+          percent: 50,
+          task_count: 50,
+          duration: "2020-12-30 00:00:00",
+          created_at: "2020-11-01 00:00:00",
+        },
+        {
+          id: 2,
+          name: "Final Project For BSRU",
+          percent: 90,
+          task_count: 50,
+          duration: "2020-12-30 00:00:00",
+          created_at: "2020-11-01 00:00:00",
+        },
+        {
+          id: 3,
+          name: "Project For internship",
+          percent: 35,
+          task_count: 50,
+          duration: "2020-12-30 00:00:00",
+          created_at: "2020-11-01 00:00:00",
+        },
+        {
+          id: 4,
+          name: "Main Project",
+          percent: 10,
+          task_count: 50,
+          duration: "2020-12-30 00:00:00",
+          created_at: "2020-11-01 00:00:00",
+        },
+      ],
+
     };
   },
 };
