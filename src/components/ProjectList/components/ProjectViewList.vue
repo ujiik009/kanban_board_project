@@ -34,14 +34,23 @@
           Progress
         </div>
       </div>
-      <div class="container-item">5</div>
+      <div class="container-item">
+        <div class="center-vertical">
+          <CircularProgress :size="100" :percent="project_item.percent" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import moment from "moment";
+import CircularProgress from "@/components/ProjectList/components/CircularProgress.vue";
+
 export default {
+  components: {
+    CircularProgress,
+  },
   props: {
     projects: Array,
   },
@@ -100,5 +109,4 @@ export default {
   position: absolute;
   right: 0%;
 }
-
 </style>
