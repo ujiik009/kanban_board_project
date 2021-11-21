@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     sing_in() {
-      alert(this.email + " " + this.password);
+      this.$router.push("/project-list")
     },
   },
 };
