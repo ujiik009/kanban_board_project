@@ -22,6 +22,7 @@
     <div class="body-column">
       <!-- todo -->
       <div class="lane-column">
+        <!-- lane-column-header -->
         <div class="lane-column-header">
           <span>Todo ({{ tasks.todo.length }})</span>
           <b-button
@@ -31,6 +32,17 @@
             ><b-icon icon="plus"></b-icon
           ></b-button>
         </div>
+        <!-- lane-column-header -->
+
+        <!-- column-body -->
+        <div class="column-body">
+          <Task
+            v-for="item_task in tasks.todo"
+            :key="item_task.id"
+            :task="item_task"
+          />
+        </div>
+        <!-- column-body -->
       </div>
       <!-- todo -->
 
@@ -45,6 +57,15 @@
             ><b-icon icon="plus"></b-icon
           ></b-button>
         </div>
+        <!-- column-body -->
+        <div class="column-body">
+          <Task
+            v-for="item_task in tasks.in_progress"
+            :key="item_task.id"
+            :task="item_task"
+          />
+        </div>
+        <!-- column-body -->
       </div>
       <!-- In Progress -->
 
@@ -59,6 +80,15 @@
             ><b-icon icon="plus"></b-icon
           ></b-button>
         </div>
+        <!-- column-body -->
+        <div class="column-body">
+          <Task 
+          v-for="item_task in tasks.done" 
+          :key="item_task.id"
+          :task="item_task"
+           />
+        </div>
+        <!-- column-body -->
       </div>
       <!-- done -->
     </div>
@@ -67,7 +97,11 @@
 </template>
 
 <script>
+import Task from "@/components/ProjectContent/components/Task.vue";
 export default {
+  components: {
+    Task,
+  },
   data() {
     return {
       project_item: {
@@ -165,5 +199,14 @@ export default {
   color: #43435e;
   border: none;
   background-color: white;
+}
+
+.column-body {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.576);
+  height: calc(100% - 50px);
+  border-radius: 10px;
+  overflow: auto;
+  padding: 5px;
 }
 </style>
