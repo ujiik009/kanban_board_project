@@ -7,7 +7,7 @@ import VueRouter from 'vue-router'
 import LoginPage from "@/components/LoginPage/index.vue"
 import CreateAccountPage from "@/components/CreateAccountPage/index.vue"
 import MainLayout from "@/components/MainLayout/index.vue"
-
+import ProjectList from "@/components/ProjectList/index.vue"
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -24,7 +24,13 @@ const routes = [
   },
   {
     path:"/main",
-    component:MainLayout
+    component:MainLayout,
+    children:[
+      {
+        path:"/project-list",
+        component:ProjectList
+      }
+    ]
   }
 ]
 
