@@ -72,12 +72,40 @@
           </div>
 
           <div id="view-content">
-            <ProjectViewCard :projects="project" v-if="view_page_active == 'card'" />
-            <ProjectViewList :projects="project" v-if="view_page_active == 'list'" />
+            <ProjectViewCard
+              :projects="project"
+              v-if="view_page_active == 'card'"
+            />
+            <ProjectViewList
+              :projects="project"
+              v-if="view_page_active == 'list'"
+            />
           </div>
         </div>
       </div>
-      <div class="content-right"></div>
+      <div class="content-right">
+        <div id="my-task-today">
+          <div style="color: #ffffff; font-size: 24px" class="font-impact">
+            <b-icon icon="card-checklist"></b-icon>
+            <span style="margin-left: 10px">My Task Today</span>
+          </div>
+          <div class="my-task-today-zone">
+            <div v-for="(task_item, index) in tasks" class="task" :key="index">
+              <div style="width: 50px">
+                <div class="round" style="margin-top: 15px; margin-left: 10px">
+                  <input
+                    type="checkbox"
+                    :id="`${'checkbox'}${index}`"
+                    :checked="task_item.status"
+                    @change="task_item.status = !task_item.status"
+                  />
+                  <label :for="`${'checkbox'}${index}`"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -132,7 +160,18 @@ export default {
           created_at: "2020-11-01 00:00:00",
         },
       ],
-
+      tasks: [
+        {
+          name: "Create Login Page",
+          label: "Design",
+          status: false,
+        },
+        {
+          name: "Create Register Page",
+          label: "Design",
+          status: true,
+        },
+      ],
     };
   },
 };
@@ -208,4 +247,71 @@ export default {
   height: calc(100% - 160px);
   overflow-y: auto;
 }
+
+#my-task-today {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #43435e;
+  height: 100%;
+}
+
+.my-task-today-zone {
+  margin-top: 15px;
+  height: 90%;
+  overflow-y: auto;
+}
+
+.task {
+  margin-top: 10px;
+  min-height: 60px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+}
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+
+
 </style>
