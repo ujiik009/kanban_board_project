@@ -4,6 +4,7 @@
       v-for="project_item in projects"
       :key="project_item.id"
       class="list-item-project"
+      @click="open_project(project_item.id)"
     >
       <div class="container-item">
         <div class="center-vertical name-project-text">
@@ -61,6 +62,9 @@ export default {
         "MMM DD YYYY HH:mm:ss"
       );
     },
+    open_project(project_id){
+      this.$router.push("/project/content/"+project_id)
+    }
   },
 };
 </script>

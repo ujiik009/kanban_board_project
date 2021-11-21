@@ -8,6 +8,8 @@ import LoginPage from "@/components/LoginPage/index.vue"
 import CreateAccountPage from "@/components/CreateAccountPage/index.vue"
 import MainLayout from "@/components/MainLayout/index.vue"
 import ProjectList from "@/components/ProjectList/index.vue"
+import ProjectContent from "@/components/ProjectContent/index.vue"
+
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -29,6 +31,10 @@ const routes = [
       {
         path:"/project-list",
         component:ProjectList
+      },
+      {
+        path:"/project/content/:project_id",
+        component:ProjectContent
       }
     ]
   }

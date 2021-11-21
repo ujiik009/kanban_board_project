@@ -7,6 +7,7 @@
         cols="4"
         md="4"
         sm="12"
+        @click="open_project(project_item.id)"
       >
         <div class="card-project">
           <div>
@@ -77,6 +78,9 @@ export default {
       // 2020-11-01 00:00:00
       return moment(date, "YYYY-MM-DD HH:mm:ss").format("MMMM DD YYYY");
     },
+    open_project(project_id){
+      this.$router.push("/project/content/"+project_id)
+    }
   },
 };
 </script>
