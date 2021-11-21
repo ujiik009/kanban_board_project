@@ -23,7 +23,13 @@
       <!-- todo -->
       <div class="lane-column">
         <div class="lane-column-header">
-          <span>Todo ({{tasks.todo.length}})</span>
+          <span>Todo ({{ tasks.todo.length }})</span>
+          <b-button
+            size="sm"
+            class="create-task-icon"
+            @click="create_task_model('todo')"
+            ><b-icon icon="plus"></b-icon
+          ></b-button>
         </div>
       </div>
       <!-- todo -->
@@ -31,7 +37,13 @@
       <!-- In Progress -->
       <div class="lane-column">
         <div class="lane-column-header">
-          <span>In Progress ({{tasks.in_progress.length}})</span>
+          <span>In Progress ({{ tasks.in_progress.length }})</span>
+          <b-button
+            size="sm"
+            class="create-task-icon"
+            @click="create_task_model('in_progress')"
+            ><b-icon icon="plus"></b-icon
+          ></b-button>
         </div>
       </div>
       <!-- In Progress -->
@@ -39,7 +51,13 @@
       <!-- done -->
       <div class="lane-column">
         <div class="lane-column-header">
-          <span>Done ({{tasks.done.length}})</span>
+          <span>Done ({{ tasks.done.length }})</span>
+          <b-button
+            size="sm"
+            class="create-task-icon"
+            @click="create_task_model('done')"
+            ><b-icon icon="plus"></b-icon
+          ></b-button>
         </div>
       </div>
       <!-- done -->
@@ -98,6 +116,11 @@ export default {
       },
     };
   },
+  methods: {
+    create_task_model(state) {
+      alert(state);
+    },
+  },
 };
 </script>
 
@@ -135,5 +158,12 @@ export default {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(97, 97, 97, 1);
   -moz-box-shadow: 0px 0px 5px 0px rgba(97, 97, 97, 1);
   box-shadow: 0px 0px 5px 0px rgba(97, 97, 97, 1);
+}
+
+.create-task-icon {
+  float: right;
+  color: #43435e;
+  border: none;
+  background-color: white;
 }
 </style>
