@@ -207,6 +207,5 @@ export default {
 #view-content {
   height: calc(100% - 160px);
   overflow-y: auto;
-  background-color: tomato;
 }
 </style>

@@ -8,8 +8,10 @@
 
 <script>
 export default {
-
-}
+  props: {
+    projects: Array,
+  },
+};
 </script>
 
 <style>
