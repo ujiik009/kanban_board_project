@@ -1,48 +1,27 @@
 <template>
   <div id="backgroud">
-    <div id="login-box" class="shadow">
-      <div class="title font-impact text-center">BSRU</div>
-      <div class="sub-title text-center">Kanban Board Project Management</div>
-      <div class="text-center" style="margin-top: 25px; font-size: 32px">
-        Welcome Back!
-      </div>
+    <div id="create-account-box" class="shadow">
+      <div class="title font-impact text-center">Create Account</div>
       <div style="padding: 50px">
-        <!-- login box -->
-        <div class="login-form">
+        <div class="create-account-form">
+          <label>Name</label>
+          <input v-model="fullname" class="input-custom" type="text" />
           <label>Email</label>
           <input v-model="email" class="input-custom" type="text" />
           <label>Password</label>
           <input v-model="password" class="input-custom" type="password" />
         </div>
-        <!-- login box -->
 
-        <!-- button box -->
         <div style="margin-top: 40px">
           <button
             type="button"
-            @click="sing_in"
-            class="btn btn-sign-in btn-lg btn-block"
+            @click="create_account"
+            class="btn btn-create-account btn-lg btn-block"
             style="width: 100%"
           >
-            Sign in
+            Create an account
           </button>
-          <div
-            class="text-center"
-            style="margin-top: 10px; margin-bottom: 10px"
-          >
-            OR
-          </div>
-          <router-link to="/create-account">
-            <button
-              type="button"
-              class="btn btn-create-account btn-lg btn-block"
-              style="width: 100%"
-            >
-              Create an account
-            </button>
-          </router-link>
         </div>
-        <!-- button box -->
       </div>
     </div>
   </div>
@@ -52,26 +31,27 @@
 export default {
   data() {
     return {
+      fullname: "",
       email: "",
       password: "",
     };
   },
-  methods: {
-    sing_in() {
-      alert(this.email + " " + this.password);
-    },
-  },
+  methods:{
+    create_account(){
+      alert(`Fullname ${this.fullname} , Email ${this.email} , Password ${this.password}`)
+    }
+  }
 };
 </script>
 
-<style scoped>
+<style>
 #backgroud {
   background-color: #43435e;
   height: inherit;
   position: relative;
 }
 
-#login-box {
+#create-account-box {
   min-width: 30vw;
   min-height: 50vh;
   background-color: #43435e;
@@ -84,7 +64,6 @@ export default {
   border-radius: 50px;
   padding: 50px;
 }
-
 .shadow {
   box-shadow: 10px 4px 37px 0px rgba(0, 0, 0, 0.71);
   -webkit-box-shadow: 10px 4px 37px 0px rgba(0, 0, 0, 0.71);
@@ -94,10 +73,6 @@ export default {
 
 .title {
   font-size: 4em;
-}
-
-.sub-title {
-  font-size: 2em;
 }
 
 .text-center {
@@ -117,13 +92,9 @@ export default {
   color: white;
 }
 
-.btn-sign-in {
+.btn-create-account {
   background-color: #7742a0;
   color: white;
 }
 
-.btn-create-account {
-  background-color: #1c1c1c;
-  color: white;
-}
 </style>
