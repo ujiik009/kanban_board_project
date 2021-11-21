@@ -46,10 +46,35 @@
                 <!-- Total Task -->
               </div>
             </div>
+            <div>
+              <!-- btn 1 -->
+              <b-button
+                @click="view_page_active = 'card'"
+                v-bind:class="{
+                  ['btn-view']: true,
+                  ['active-btn']: view_page_active == 'card',
+                }"
+                ><b-icon icon="grid-3x3-gap-fill"></b-icon
+              ></b-button>
+              <!-- btn 1  -->
+
+              <!-- btn 2 -->
+              <b-button
+                @click="view_page_active = 'list'"
+                v-bind:class="{
+                  ['btn-view']: true,
+                  ['active-btn']: view_page_active == 'list',
+                }"
+                ><b-icon icon="list-ul"></b-icon
+              ></b-button>
+              <!-- btn 2 -->
+            </div>
           </div>
         </div>
       </div>
-      <div class="content-right"></div>
+      <div class="content-right">
+        
+      </div>
     </div>
   </div>
 </template>
@@ -59,10 +84,11 @@ import moment from "moment";
 export default {
   data() {
     return {
+      view_page_active: "card",
       date_now: moment().format("DD MMMM YYYY"),
       in_progress: 50,
       upcomeing: 12,
-      total_task:62
+      total_task: 62,
     };
   },
 };
@@ -110,4 +136,29 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
+.btn-view {
+  background-color: white;
+  color: #43435e;
+}
+
+.active-btn {
+  background-color: #43435e !important;
+  color: white !important;
+}
+
+.btn-view:active,
+.btn-view:focus,
+.btn-view:hover {
+  background-color: #43435e !important;
+  color: white !important;
+}
+
+#summary-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
 </style>
