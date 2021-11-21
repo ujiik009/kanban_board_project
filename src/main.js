@@ -6,6 +6,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import LoginPage from "@/components/LoginPage/index.vue"
 import CreateAccountPage from "@/components/CreateAccountPage/index.vue"
+import MainLayout from "@/components/MainLayout/index.vue"
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
@@ -20,6 +21,10 @@ const routes = [
   {
     path: "/create-account",
     component: CreateAccountPage
+  },
+  {
+    path:"/main",
+    component:MainLayout
   }
 ]
 
