@@ -70,11 +70,13 @@
               <!-- btn 2 -->
             </div>
           </div>
+
+          <div id="view-content">
+            {{ view_page_active }}
+          </div>
         </div>
       </div>
-      <div class="content-right">
-        
-      </div>
+      <div class="content-right"></div>
     </div>
   </div>
 </template>
@@ -160,5 +162,9 @@ export default {
   justify-content: space-between;
 }
 
-
+#view-content {
+  height: calc(100% - 160px);
+  overflow-y: auto;
+  background-color: tomato;
+}
 </style>
