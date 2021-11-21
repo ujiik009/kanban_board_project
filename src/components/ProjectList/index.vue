@@ -72,7 +72,8 @@
           </div>
 
           <div id="view-content">
-            {{ view_page_active }}
+            <ProjectViewCard v-if="view_page_active == 'card'" />
+            <ProjectViewList v-if="view_page_active == 'list'" />
           </div>
         </div>
       </div>
@@ -83,7 +84,13 @@
 
 <script>
 import moment from "moment";
+import ProjectViewCard from "@/components/ProjectList/components/ProjectViewCard.vue";
+import ProjectViewList from "@/components/ProjectList/components/ProjectViewList.vue";
 export default {
+  components: {
+    ProjectViewCard,
+    ProjectViewList,
+  },
   data() {
     return {
       view_page_active: "card",
