@@ -72,10 +72,12 @@
           </div>
 
           <div id="view-content">
+            
             <ProjectViewCard
               :projects="project"
               v-if="view_page_active == 'card'"
             />
+
             <ProjectViewList
               :projects="project"
               v-if="view_page_active == 'list'"
