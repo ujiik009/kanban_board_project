@@ -3,10 +3,10 @@
     <div class="content-body">
       <b-tabs content-class="mt-3">
         <b-tab title="Kanban Board" active>
-          <div>Kanban Board</div>
+          <div><KanbanBoard /></div>
         </b-tab>
         <b-tab title="Member">
-          <div>Member</div>
+          <div><Member/></div>
         </b-tab>
       </b-tabs>
     </div>
@@ -15,7 +15,13 @@
 
 
 <script>
+import KanbanBoard from "@/components/ProjectContent/components/KanbanBoard.vue";
+import Member from "@/components/ProjectContent/components/Member.vue";
 export default {
+  components: {
+      KanbanBoard,
+      Member
+  },
   data() {
     return {
       project_id: this.$route.params.project_id,
